@@ -1,4 +1,15 @@
-import Image from 'next/image'
+//import Image from 'next/image'
+import PokemonList from "../../components/PokemonList";
+import Pokemons from "../../components/PokemonList";
+import { getPokemonList } from "../../lib/pokemonAPI";
+
+/* async function getPokemon() {
+  const data = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+  //let data2 = await data.json()
+  return data.json();
+} */
+
+
 
 export default async function Home() {
 
@@ -44,7 +55,7 @@ export default async function Home() {
       //appending that pokeContainer div to the main div which will hold all the pokemon cards
     } */
 
-    function fetchPokemonData(pokemon)
+/*     function fetchPokemonData(pokemon)
     {
       let url = pokemon.url
       // <--- this is saving the pokemon url to a      variable to us in a fetch.(Ex: https://pokeapi.co/api/v2/pokemon/1/)
@@ -55,9 +66,9 @@ export default async function Home() {
         //console.log(pokeData)
         //renderPokemon(pokeData)
       })
-    }
+    } */
    
-    function fetchKantoPokemon()
+/*     function fetchKantoPokemon()
     {
        fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
        .then(response => response.json())
@@ -69,13 +80,20 @@ export default async function Home() {
             fetchPokemonData(pokemon);
          })
        })
-    }
+    } */
 
-    fetchKantoPokemon()
+    //fetchKantoPokemon()
+
+    
+
+    //let {pokemon} = await getPokemon()
+
+    const pokemonListData = await getPokemonList();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>Home</p>
+      
+      <PokemonList pokemonList={pokemonListData}></PokemonList>
     </main>
   )
 }
