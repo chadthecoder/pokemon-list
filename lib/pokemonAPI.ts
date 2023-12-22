@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 const POKE_API = "https://pokeapi.co/api/v2/"
 
 export async function getPokemonList() {
@@ -7,9 +9,18 @@ export async function getPokemonList() {
 }
 
 export async function getPokemonInfo(name: string) {
-    const res = await fetch(POKE_API+"pokemon/"+name)
-    console.log("infoFunc: "+name)
-    const data = await res.json()
-    
-    return data;
+    //const res = await fetch(POKE_API+"pokemon/"+name)
+    //console.log("infoFunc: "+name)
+    //const data = await res.json()
+    //return data;
+
+    try {
+        const res = await fetch(POKE_API+"pokemon/"+name)
+        console.log("infoFunc: "+name)
+        const data = await res.json()
+        return data;
+      } catch (error) {
+        notFound()
+        //return { message: 'Database Error: Failed to Get Pokemon' };
+      }
 }
