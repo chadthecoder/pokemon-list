@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default async function PokemonInfoPage({params}: {params: {pokemonID: string}}) {
 
-    console.log("info page: "+params.pokemonID)
+    //console.log("info page: "+params.pokemonID)
     const pokemonInfoData = await getPokemonInfo(params.pokemonID);
-    console.log(pokemonInfoData)
+    //console.log(pokemonInfoData)
 
 return <div>
             <p>{pokemonInfoData.name}</p>

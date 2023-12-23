@@ -16,11 +16,19 @@ export async function getPokemonInfo(name: string) {
 
     try {
         const res = await fetch(POKE_API+"pokemon/"+name)
-        console.log("infoFunc: "+name)
+        //console.log("infoFunc: "+name)
         const data = await res.json()
         return data;
       } catch (error) {
-        notFound()
+        console.log("this does not exist")
+        //notFound()
         //return { message: 'Database Error: Failed to Get Pokemon' };
       }
+}
+
+export function getPokemonNum(url: string, index: number)
+{
+  var pathname = new URL(url).pathname;
+  var paths = pathname.split("/")
+  return paths[index]
 }
