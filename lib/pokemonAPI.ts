@@ -1,3 +1,4 @@
+import exp from 'constants';
 import { notFound } from 'next/navigation'
 
 const POKE_API = "https://pokeapi.co/api/v2/"
