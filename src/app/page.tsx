@@ -1,6 +1,6 @@
 //import Image from 'next/image'
-import PokemonList from "../../components/PokemonList";
-import Pokemons from "../../components/PokemonList";
+import PokemonList from "../components/PokemonList";
+import Pokemons from "../components/PokemonList";
 import { getPokemonList } from "../../lib/pokemonAPI";
 
 
