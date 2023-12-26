@@ -14,10 +14,10 @@ export default function PokemonList({pokemonList} : PokemonListProps) { //Header
           return  (
               <>
                 {pokemonList?.map((pokemon) => (
-                    <div className="w-96">
+                    <>
                     <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
                     <br/>
-                    </div>
+                    </>
                 ))}
               </>
       );
