@@ -35,6 +35,7 @@ export default function Header() { //Header(props: string)
         return  (
             <nav>
               <Button linkRef='/' textData='Home'/>
+              <Button linkRef='/1' textData='First Pokemon'/>
           </nav>
     );
   }
