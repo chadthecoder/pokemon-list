@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from "react";
+import Button from './Button';
 //import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 //import Nav from 'react-bootstrap/Nav';
@@ -33,7 +34,7 @@ export default function Header() { //Header(props: string)
 
         return  (
             <nav>
-            <Link className="block w-full cursor-pointer rounded-lg p-4 text-left transition duration-500 hover:bg-neutral-100 hover:text-neutral-500 focus:bg-neutral-100 focus:text-neutral-500 focus:ring-0 dark:hover:bg-neutral-600 dark:hover:text-neutral-200 dark:focus:bg-neutral-600 dark:focus:text-neutral-200" href='/'>Home</Link>
+              <Button linkRef='/' textData='Home'/>
           </nav>
     );
   }
