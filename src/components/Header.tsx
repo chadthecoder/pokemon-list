@@ -33,7 +33,7 @@ export default function Header() { //Header(props: string)
   //let names = props.menu.split(',');
 
         return  (
-            <nav>
+            <nav className='flex flex-row'>
               <Button linkRef='/' textData='Home'/>
               <Button linkRef='/1' textData='First Pokemon'/>
           </nav>
