@@ -10,9 +10,9 @@ export default async function Home() {
     const pokemonListData = await getPokemonList();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    /*<main className="flex min-h-screen flex-col items-center justify-between p-24">*/
       
       <PokemonList pokemonList={pokemonListData}></PokemonList>
-    </main>
+    /*</main>*/
   )
 }
