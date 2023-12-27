@@ -1,5 +1,6 @@
-import { getPokemonNum } from "../../lib/pokemonAPI";
+import { getPokemonNum } from "../lib/pokemonAPI";
 import Button from "./Button";
+import Searchbar from "./SearchBar";
 
 interface PokemonListProps
 {
@@ -13,6 +14,9 @@ export default function PokemonList({pokemonList} : PokemonListProps) { //Header
 
           return  (
               <>
+
+                <Searchbar pokemonNames={pokemonList}/>
+
                 {pokemonList?.map((pokemon) => (
                     <>
                     <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>

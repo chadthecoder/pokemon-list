@@ -1,4 +1,4 @@
-import { getPokemonInfo } from "../../../lib/pokemonAPI"
+import { getPokemonInfo } from "../../lib/pokemonAPI"
 import Image from "next/image";
 //import PokemonInfo from "../../../components/PokemonInfo";
 

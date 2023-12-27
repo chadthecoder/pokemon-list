@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getPokemonNum } from '../lib/pokemonAPI'
+import { getPokemonNum } from './lib/pokemonAPI'
  
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
