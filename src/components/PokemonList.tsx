@@ -8,10 +8,25 @@ interface PokemonListProps
   searchQuery?: any
 }
 
-export default function PokemonList({pokemonList, searchQuery} : PokemonListProps) { //Header(props: string)
- 
-    if(searchQuery){
+export default async function PokemonList({pokemonList, searchQuery} : PokemonListProps) { //Header(props: string)
+
+    /* if(searchQuery){
       console.log(searchQuery)
+    } */
+
+    async function showPokemon(){ 
+      'use server'
+
+      if(searchQuery){
+        pokemonList?.filter(function (pokemon){
+          if(pokemon.name == searchQuery) return pokemon
+      }).map((pokemon) => (
+          <>
+          <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
+          <br/>
+          </>
+      ))
+      }
     }
 
           return  (
@@ -19,12 +34,14 @@ export default function PokemonList({pokemonList, searchQuery} : PokemonListProp
 
                 
 
-                {pokemonList?.map((pokemon) => (
-                    <>
-                    <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
-                    <br/>
-                    </>
-                ))}
+                {pokemonList?.filter(function (pokemon){
+          if(pokemon.name == searchQuery.toLowerCase()) return pokemon
+      }).map((pokemon) => (
+          <>
+          <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
+          <br/>
+          </>
+      ))}
               </>
       );
     }
