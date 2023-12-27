@@ -6,7 +6,7 @@ interface SearchProps
 }
 
 import {AiOutlineSearch} from 'react-icons/ai'
-import { useRouter } from 'next/navigation'
+import { notFound, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 //import { words } from '@/lib/data'
@@ -18,8 +18,15 @@ export default function Searchbar({pokemonNames} : SearchProps) {
     const [searchText, setSearchText] = useState('')
     const [query] = useDebounce(searchText, 500)
     
+    const [testText, setTestText] = useState('')
+
     useEffect(() => {
-        router.push(`/?search=${query}`)
+        if(!query){
+            router.push('/')
+        }
+        else{
+            router.push(`/?search=${query}`)
+        }
     }, [query, router])
 
     //const [activeSearch, setActiveSearch] = useState([])
@@ -40,11 +47,18 @@ export default function Searchbar({pokemonNames} : SearchProps) {
         //setActiveSearch(pokemonNames.filter(w => w.includes(e.target.value)).slice(0,8))
     } */
 
-  return (
+    
+
+    function testFunc(){
+      if(query) setTestText(query)
+      else notFound()
+    }
+
+  return (<>
     <form className='w-[500px] relative'>
         <div className="relative">
             <input type="search" placeholder='Type Here' className='w-full p-4 rounded-full bg-slate-800' onChange={(e) => setSearchText(e.target.value)}/>
-            <button className='absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-slate-600 rounded-full'>
+            <button onClick={testFunc} className='absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-slate-600 rounded-full'>
                 <AiOutlineSearch />
             </button>
         </div>
@@ -64,5 +78,7 @@ export default function Searchbar({pokemonNames} : SearchProps) {
 
         
     </form>
+    <p>{testText}</p>
+    </>
   )
 }

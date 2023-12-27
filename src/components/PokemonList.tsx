@@ -15,7 +15,7 @@ export default function PokemonList({pokemonList} : PokemonListProps) { //Header
           return  (
               <>
 
-                <Searchbar pokemonNames={pokemonList}/>
+                
 
                 {pokemonList?.map((pokemon) => (
                     <>
