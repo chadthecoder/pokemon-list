@@ -5,12 +5,14 @@ import Searchbar from "./SearchBar";
 interface PokemonListProps
 {
   pokemonList: any
+  searchQuery?: any
 }
 
-export default function PokemonList({pokemonList} : PokemonListProps) { //Header(props: string)
+export default function PokemonList({pokemonList, searchQuery} : PokemonListProps) { //Header(props: string)
  
-    //tried to make customizable header, could not figure out dropdown menu yet
-    //let names = props.menu.split(',');
+    if(searchQuery){
+      console.log(searchQuery)
+    }
 
           return  (
               <>

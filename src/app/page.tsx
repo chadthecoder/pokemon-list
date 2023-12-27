@@ -1,10 +1,7 @@
 //import Image from 'next/image'
-import { notFound } from "next/navigation";
 import PokemonList from "../components/PokemonList";
-import Pokemons from "../components/PokemonList";
 import { getPokemonList } from "../lib/pokemonAPI";
 import Searchbar from "@/components/SearchBar";
-import { useState } from "react";
 
 export default async function Home({
   searchParams
@@ -23,9 +20,9 @@ export default async function Home({
 
   return (
     /*<main className="flex min-h-screen flex-col items-center justify-between p-24">*/
-     <> 
+     <>
      <Searchbar pokemonNames={pokemonListData}/>
-      <PokemonList pokemonList={pokemonListData}></PokemonList>
+      <PokemonList pokemonList={pokemonListData} searchQuery={search}></PokemonList>
       
       </>
     /*</main>*/
