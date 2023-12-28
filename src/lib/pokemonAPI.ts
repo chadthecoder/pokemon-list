@@ -2,9 +2,10 @@ import exp from 'constants';
 import { notFound } from 'next/navigation'
 
 const POKE_API = "https://pokeapi.co/api/v2/"
+const lastPokemonNum = 151
 
 export async function getPokemonList() {
-    const res = await fetch(POKE_API+"pokemon?limit=151")
+    const res = await fetch(POKE_API+"pokemon?limit="+lastPokemonNum)
     const data = await res.json()
     return data.results;
 }
@@ -51,12 +52,26 @@ export function getCurPokemonNum(pathname: string)
   return Number(pathname.slice(1))
 }
 
-export function getNextPokemon(cur: number)
+export function getNextPokemon(curr: number)
 {
-  return (cur+1).toString()
+  if(curr<151)
+  {
+    return (curr+1).toString()
+  }
+  else
+  {
+    return curr.toString()
+  }
 }
 
-export function getPrevPokemon(cur: number)
+export function getPrevPokemon(curr: number)
 {
-  return (cur-1).toString()
+  if(curr>1)
+  {
+    return (curr-1).toString()
+  }
+  else
+  {
+    return curr.toString()
+  }
 }
