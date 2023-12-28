@@ -1,7 +1,12 @@
+'use client'
+
 import Head from 'next/head';
 import Link from 'next/link';
-import React from "react";
+import React, { useEffect } from "react";
 import Button from './Button';
+import { getRandomPokemonNum, getRandomPokemonPage } from '@/lib/pokemonAPI';
+import { useState } from 'react';
+
 //import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 //import Nav from 'react-bootstrap/Nav';
@@ -29,13 +34,17 @@ import Button from './Button';
 
 export default function Header() { //Header(props: string)
  
-  //tried to make customizable header, could not figure out dropdown menu yet
-  //let names = props.menu.split(',');
+  const [randPokemon, setRandPokemon] = useState('')
 
         return  (
             <nav className='flex flex-row'>
               <Button linkRef='/' textData='Home'/>
-              <Button linkRef='/1' textData='First Pokemon'/>
+              <Button linkRef={randPokemon}
+                      onClick={() =>
+                      {
+                        setRandPokemon(getRandomPokemonNum(1,151).toString())
+                      }}
+                      textData='Random Pokemon'/>
           </nav>
     );
   }

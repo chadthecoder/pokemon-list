@@ -33,3 +33,15 @@ export function getPokemonNum(url: string, index: number)
   var paths = pathname.split("/")
   return paths[index]
 }
+
+export function getRandomPokemonNum(min: number, max: number)
+{
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+export function getRandomPokemonPage(pokemonNum: number)
+{
+    return ("/"+pokemonNum.toString());
+}
