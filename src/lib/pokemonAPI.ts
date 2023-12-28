@@ -55,3 +55,8 @@ export function getNextPokemon(cur: number)
 {
   return (cur+1).toString()
 }
+
+export function getPrevPokemon(cur: number)
+{
+  return (cur-1).toString()
+}
