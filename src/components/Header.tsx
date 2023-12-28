@@ -36,7 +36,10 @@ import path from 'path';
 
 export default function Header() { //Header(props: string)
  
-  const [randPokemon, setRandPokemon] = useState('')
+  let [randPokemon, setRandPokemon] = useState('')
+  randPokemon = getRandomPokemonNum(1,151).toString()
+  //setRandPokemon(getRandomPokemonNum(1,151).toString())
+
   let isNotHome = false
   
   const pathname = usePathname()
