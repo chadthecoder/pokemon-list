@@ -19,12 +19,12 @@ export default async function Home({
     else console.log('failsauce')
 
   return (
-    /*<main className="flex min-h-screen flex-col items-center justify-between p-24">*/
-     <>
+    <main>
+     <div className="flex flex-col items-center justify-between">
      <Searchbar pokemonNames={pokemonListData}/>
       <PokemonList pokemonList={pokemonListData} searchQuery={search}></PokemonList>
       
-      </>
-    /*</main>*/
+      </div>
+    </main>
   )
 }

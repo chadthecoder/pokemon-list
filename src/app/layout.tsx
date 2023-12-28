@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className="bg-gray-300 ${inter.className}">
+      <body className="bg-gray-300 ${inter.className} flex min-h-screen flex-col items-center p-24">
         <Header></Header>
         {children}
       </body>
