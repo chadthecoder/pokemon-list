@@ -4,8 +4,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from "react";
 import Button from './Button';
-import { getRandomPokemonNum, getRandomPokemonPage } from '@/lib/pokemonAPI';
+import { getRandomPokemonNum, getRandomPokemonPage, getCurPokemonNum, getNextPokemon } from '@/lib/pokemonAPI';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import path from 'path';
 
 //import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
@@ -35,9 +37,14 @@ import { useState } from 'react';
 export default function Header() { //Header(props: string)
  
   const [randPokemon, setRandPokemon] = useState('')
+  let isNotHome = false
+  
+  const pathname = usePathname()
+  if(pathname!="/") isNotHome = true
 
         return  (
             <nav className='flex flex-row'>
+              <p>Post: {pathname}</p>
               <Button linkRef='/' textData='Home'/>
               <Button linkRef={randPokemon}
                       onClick={() =>
@@ -45,6 +52,7 @@ export default function Header() { //Header(props: string)
                         setRandPokemon(getRandomPokemonNum(1,151).toString())
                       }}
                       textData='Random Pokemon'/>
+              { isNotHome ? <Button linkRef={getNextPokemon(getCurPokemonNum(pathname))} textData='Next Pokemon'/> : <></>} 
           </nav>
     );
   }

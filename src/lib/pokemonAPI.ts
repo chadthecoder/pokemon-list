@@ -45,3 +45,13 @@ export function getRandomPokemonPage(pokemonNum: number)
 {
     return ("/"+pokemonNum.toString());
 }
+
+export function getCurPokemonNum(pathname: string)
+{
+  return Number(pathname.slice(1))
+}
+
+export function getNextPokemon(cur: number)
+{
+  return (cur+1).toString()
+}
