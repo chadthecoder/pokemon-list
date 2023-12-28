@@ -13,6 +13,9 @@ return <div>
             <Image
                 src={pokemonInfoData.sprites.front_default} width={200} height={200} alt="Pokemon Picture"
             />
+             <p>{"ID: "+pokemonInfoData.id}</p>
+             <p>{"Height: "+pokemonInfoData.height}</p>
+             <p>{"Weight: "+pokemonInfoData.weight}</p>
         </div>
     
 }
