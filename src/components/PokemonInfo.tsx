@@ -13,7 +13,7 @@ export default function PokemonInfo({pokemonInfo} : PokemonInfoProps) { //Header
                 {pokemonInfo?.map((pokemon) => (
                    
                     <div>
-                    <p>{pokemon.name}</p>
+                    <p>{pokemon.name[0].toUpperCase()}</p>
                     <br/>
                     </div>
                     

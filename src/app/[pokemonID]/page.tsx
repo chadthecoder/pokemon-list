@@ -9,7 +9,7 @@ export default async function PokemonInfoPage({params}: {params: {pokemonID: str
     //console.log(pokemonInfoData)
 
 return <div>
-            <p>{pokemonInfoData.name}</p>
+            <p>{pokemonInfoData.name[0].toUpperCase() + pokemonInfoData.name.slice(1)}</p>
             <Image
                 src={pokemonInfoData.sprites.front_default} width={200} height={200} alt="Pokemon Picture"
             />
