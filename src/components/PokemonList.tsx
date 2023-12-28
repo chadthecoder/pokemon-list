@@ -33,10 +33,11 @@ export default async function PokemonList({pokemonList, searchQuery} : PokemonLi
               <>
 
                 
-
-                {searchQuery ? pokemonList?.filter(function (pokemon){
-          if(pokemon.name.includes(searchQuery.toLowerCase())) return pokemon
-      }).map((pokemon) => (
+          {searchQuery ? pokemonList?.filter(function (pokemon)
+            {
+              if(pokemon.name.includes(searchQuery.toLowerCase())) return pokemon
+              if(getPokemonNum(pokemon.url, 4).includes(searchQuery.toLowerCase())) return pokemon
+            }).map((pokemon) => (
           <>
           <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
           <br/>
