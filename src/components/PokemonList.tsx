@@ -34,14 +34,19 @@ export default async function PokemonList({pokemonList, searchQuery} : PokemonLi
 
                 
 
-                {pokemonList?.filter(function (pokemon){
+                {searchQuery ? pokemonList?.filter(function (pokemon){
           if(pokemon.name == searchQuery.toLowerCase()) return pokemon
       }).map((pokemon) => (
           <>
           <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
           <br/>
           </>
-      ))}
+      )) : pokemonList?.map((pokemon) => (
+        <>
+        <Button linkRef={getPokemonNum(pokemon.url, 4)} textData={pokemon.name}></Button>
+        <br/>
+        </>
+    ))}
               </>
       );
     }
