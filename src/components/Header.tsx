@@ -47,7 +47,6 @@ export default function Header() { //Header(props: string)
 
         return  (
             <nav className='flex flex-row'>
-              <p>Post: {pathname}</p>
               <Button linkRef='/' textData='Home'/>
               <Button linkRef={randPokemon}
                       onClick={() =>
