@@ -42,10 +42,10 @@ export function getRandomPokemonNum(min: number, max: number)
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-export function getRandomPokemonPage(pokemonNum: number)
+/* export function getRandomPokemonPage(pokemonNum: number)
 {
     return ("/"+pokemonNum.toString());
-}
+} */
 
 export function getCurPokemonNum(pathname: string)
 {
