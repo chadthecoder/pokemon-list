@@ -13,10 +13,10 @@ export default async function Home({
 
     const pokemonListData = await getPokemonList();
 
-    if(search){
+    /* if(search){
       console.log(search)
     }
-    else console.log('failsauce')
+    else console.log('failsauce') */
 
   return (
     <main>

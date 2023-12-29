@@ -22,7 +22,7 @@ export async function getPokemonInfo(name: string) {
         const data = await res.json()
         return data;
       } catch (error) {
-        console.log("this does not exist")
+        //console.log("this does not exist")
         //notFound()
         //return { message: 'Database Error: Failed to Get Pokemon' };
       }
