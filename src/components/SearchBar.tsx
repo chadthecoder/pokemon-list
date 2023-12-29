@@ -57,7 +57,7 @@ export default function Searchbar({pokemonNames} : SearchProps) {
   return (<>
     <form className='p-10 w-[500px] relative'>
         <div className="relative">
-            <input type="search" placeholder='Type Here' className='w-full p-4 rounded-full bg-slate-800 text-white' onChange={(e) => setSearchText(e.target.value)}/>
+            <input type="search" placeholder='Search by Name or ID...' className='w-full p-4 rounded-full bg-slate-800 text-white' onChange={(e) => setSearchText(e.target.value)}/>
             
         </div>
 
