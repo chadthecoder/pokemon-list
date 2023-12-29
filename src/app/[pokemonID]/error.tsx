@@ -11,9 +11,10 @@ export default function ErrorBoundry({
     reset: () => void
 }) {
 
+    const router = useRouter();
+
     function routeReplace(url: string)
     {
-        const router = useRouter();
         router.replace(url)
     }
 

@@ -1,6 +1,5 @@
 import { getPokemonNum, getSafeLink } from "../lib/pokemonAPI";
 import Button from "./Button";
-import Searchbar from "./SearchBar";
 
 interface PokemonListProps
 {
@@ -8,41 +7,22 @@ interface PokemonListProps
   searchQuery?: any
 }
 
-export default async function PokemonList({pokemonList, searchQuery} : PokemonListProps) { //Header(props: string)
-
-    /* if(searchQuery){
-      console.log(searchQuery)
-    } */
-
-    async function showPokemon(){ 
-      'use server'
-
-      if(searchQuery){
-        pokemonList?.filter(function (pokemon){
-          if(pokemon.name == searchQuery) return pokemon
-      }).map((pokemon) => (
-          <>
-          <Button linkRef={getSafeLink(getPokemonNum(pokemon.url, 4))} textData={pokemon.name}></Button>
-          <br/>
-          </>
-      ))
-      }
-    }
+export default async function PokemonList({pokemonList, searchQuery} : PokemonListProps) {
 
           return  (
               <>
 
                 
-          {searchQuery ? pokemonList?.filter(function (pokemon)
+          {searchQuery ? pokemonList?.filter(function (pokemon: {name: string, url: string})
             {
               if(pokemon.name.includes(searchQuery.toLowerCase())) return pokemon
               if(getPokemonNum(pokemon.url, 4).includes(searchQuery.toLowerCase())) return pokemon
-            }).map((pokemon) => (
+            }).map((pokemon: {name: string, url: string}) => (
           <div key={pokemon.name}>
             <Button linkRef={getSafeLink(getPokemonNum(pokemon.url, 4))} textData={pokemon.name}></Button>
           <br/>
           </div>
-      )) : pokemonList?.map((pokemon) => (
+      )) : pokemonList?.map((pokemon: {name: string, url: string}) => (
         <div key={pokemon.name}>
           <Button linkRef={getSafeLink(getPokemonNum(pokemon.url, 4))} textData={pokemon.name}></Button>
         <br/>
