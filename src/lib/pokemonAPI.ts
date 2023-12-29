@@ -75,3 +75,8 @@ export function getPrevPokemon(curr: number)
     return curr.toString()
   }
 }
+
+export function getSafeLink(link: string)
+{
+  return ("/"+link)
+}

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from "react";
 import Button from './Button';
-import { getRandomPokemonNum, getCurPokemonNum, getPrevPokemon, getNextPokemon } from '@/lib/pokemonAPI';
+import { getRandomPokemonNum, getCurPokemonNum, getPrevPokemon, getNextPokemon, getSafeLink } from '@/lib/pokemonAPI';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import path from 'path';
@@ -48,14 +48,14 @@ export default function Header() { //Header(props: string)
         return  (
             <nav className='flex flex-row'>
               <Button linkRef='/' textData='Home'/>
-              <Button linkRef={randPokemon}
+              <Button linkRef={getSafeLink(randPokemon)}
                       onClick={() =>
                       {
                         setRandPokemon(getRandomPokemonNum(1,151).toString())
                       }}
                       textData='Random Pokemon'/>
-              { isNotHome ? <Button linkRef={getPrevPokemon(getCurPokemonNum(pathname))} textData='Previous Pokemon'/> : <></>} 
-              { isNotHome ? <Button linkRef={getNextPokemon(getCurPokemonNum(pathname))} textData='Next Pokemon'/> : <></>} 
+              { isNotHome ? <Button linkRef={getSafeLink(getPrevPokemon(getCurPokemonNum(pathname)))} textData='Previous Pokemon'/> : <></>} 
+              { isNotHome ? <Button linkRef={getSafeLink(getNextPokemon(getCurPokemonNum(pathname)))} textData='Next Pokemon'/> : <></>} 
           </nav>
     );
   }
