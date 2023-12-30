@@ -2,11 +2,30 @@ import { getPokemonInfo } from "../../lib/pokemonAPI"
 import Image from "next/image";
 //import PokemonInfo from "../../../components/PokemonInfo";
 
-export default async function PokemonInfoPage({params}: {params: {pokemonID: string}}) {
+import type { Metadata, ResolvingMetadata } from 'next'
+ 
+type pokeIDProps = {
+  params: { pokemonID: string }
+}
+ 
+export async function generateMetadata(
+  { params }: pokeIDProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
 
-    //console.log("info page: "+params.pokemonID)
     const pokemonInfoData = await getPokemonInfo(params.pokemonID);
-    //console.log(pokemonInfoData)
+
+    const pokeName = pokemonInfoData.name[0].toUpperCase() + pokemonInfoData.name.slice(1)
+    const pokeTitle = pokeName+"'s Page"
+ 
+  return {
+    title: pokeTitle
+  }
+}
+
+export default async function PokemonInfoPage({params}: pokeIDProps) {
+
+    const pokemonInfoData = await getPokemonInfo(params.pokemonID);
 
 return <div className="flex flex-col items-center p-10">
             <p>{pokemonInfoData.name[0].toUpperCase() + pokemonInfoData.name.slice(1)}</p>
@@ -16,6 +35,5 @@ return <div className="flex flex-col items-center p-10">
              <p>{"ID: "+pokemonInfoData.id}</p>
              <p>{"Height: "+pokemonInfoData.height}</p>
              <p>{"Weight: "+pokemonInfoData.weight}</p>
-        </div>
-    
+        </div>   
 }
