@@ -1,6 +1,6 @@
 //import Image from 'next/image'
 import PokemonList from "../components/PokemonList";
-import { getPokemonList } from "../lib/pokemonAPI";
+import { getPokemonList } from "../utils/pokemonAPI";
 import Searchbar from "@/components/SearchBar";
 
 export default async function Home({

@@ -1,4 +1,4 @@
-import { getPokemonNum, getSafeLink } from "../lib/pokemonAPI";
+import { getPokemonNum, getSafeLink } from "../utils/pokemonAPI";
 import Button from "./Button";
 
 interface PokemonListProps

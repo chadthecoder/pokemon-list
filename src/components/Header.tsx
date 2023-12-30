@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from "react";
 import Button from './Button';
-import { getRandomPokemonNum, getCurPokemonNum, getPrevPokemon, getNextPokemon, getSafeLink } from '@/lib/pokemonAPI';
+import { getRandomPokemonNum, getCurPokemonNum, getPrevPokemon, getNextPokemon, getSafeLink } from '@/utils/pokemonAPI';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import path from 'path';
