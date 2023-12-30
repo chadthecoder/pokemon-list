@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Merriweather } from 'next/font/google'
 import './globals.css'
 
 import Header from '../components/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+const merriweather = Merriweather({
+  weight: ['300'],
+   subsets: ['latin']
+  })
 
 export const metadata: Metadata = {
   title: 'Pokemon List',
@@ -21,10 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
-      </head>
-      <body className="bg-gray-300 ${inter.className} flex flex-col items-center min-h-screen p-24">
+      <body className="bg-gray-300 ${merriweather.className} flex flex-col items-center min-h-screen p-24">
         <Header></Header>
         {children}
       </body>
